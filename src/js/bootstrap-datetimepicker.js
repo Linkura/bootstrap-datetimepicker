@@ -181,7 +181,7 @@
     },
 
     setValue: function(newDate) {
-      if (!newDate) {
+      if (newDate === null) {
         this._unset = true;
       } else {
         this._unset = false;
@@ -266,16 +266,16 @@
       offset.top = offset.top + this.height;
 
       var $window = $(window);
-      
+
       if ( this.options.width != undefined ) {
         this.widget.width( this.options.width );
       }
-      
+
       if ( this.options.orientation == 'left' ) {
         this.widget.addClass( 'left-oriented' );
         offset.left   = offset.left - this.widget.width() + 20;
       }
-      
+
       if (this._isInFixed()) {
         position = 'fixed';
         offset.top -= $window.scrollTop();
@@ -851,7 +851,7 @@
           else return 'AM';
 	} else if (property === 'UTCYear') {
           rv = d.getUTCFullYear();
-          rv = rv.toString().substr(2);   
+          rv = rv.toString().substr(2);
         } else {
           methodName = 'get' + property;
           rv = d[methodName]();
